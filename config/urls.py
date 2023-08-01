@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 
 from rest_framework import routers
-from posts.views import PostModelViewSet, calculator, CalculatorAPIView
+from posts.views import PostModelViewSet, calculator, CalculatorAPIView, CommentModelViewSet
 
 router = routers.DefaultRouter()
 router.register('posts', PostModelViewSet)
+router.register('comments', CommentModelViewSet)
+
 
 
 urlpatterns = [

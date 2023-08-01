@@ -4,13 +4,17 @@ from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
-from .models import Post
-from .serializers import PostModelSerializer
+from .models import Post, Comment
+from .serializers import PostBaseModelSerializer, PostListModelSerializer, PostCreateModelSerializer, CommentHyperlinkModelSerializer, PostDeleteeModelSerializer
 # Create your views here.
 
 class PostModelViewSet(ModelViewSet):
     queryset = Post.objects.all()
-    serializer_class = PostModelSerializer
+    serializer_class = PostListModelSerializer
+
+class CommentModelViewSet(ModelViewSet):
+    queryset = Comment.objects.all()
+    serializer_class = CommentHyperlinkModelSerializer
 
 @api_view()
 def calculator(request):
@@ -64,4 +68,4 @@ class CalculatorAPIView(APIView):
 
     #3. 응답
             return Response()
-    def post
+    #def post
